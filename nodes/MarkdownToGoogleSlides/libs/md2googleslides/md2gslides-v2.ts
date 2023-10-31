@@ -2,11 +2,6 @@ import { OAuth2Client } from 'googleapis-common';
 
 import SlideGenerator from './md2googleslides/slide_generator';
 
-// const SCOPES = [
-// 	'https://www.googleapis.com/auth/presentations',
-// 	'https://www.googleapis.com/auth/drive',
-// ];
-
 import { css } from './styles/github.css';
 
 export function loadCSS() {

@@ -96,7 +96,6 @@ export class MarkdownToGoogleSlides implements INodeType {
 		let item: INodeExecutionData;
 
 		const credentials = await this.getCredentials('googleOAuth2Api');
-		console.log({ credentials });
 		const md2googleslides = new GooogleSlidesGenerator({
 			clientId: credentials.clientId as string,
 			clientSecret: credentials.clientSecret as string,
