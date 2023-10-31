@@ -1,47 +1,74 @@
-![Banner image](https://user-images.githubusercontent.com/10284570/173569848-c624317f-42b1-45a6-ab09-f0ea3c247648.png)
+# n8n Community Nodes Documentation
 
-# n8n-nodes-starter
+This document covers three n8n community nodes that integrate with different platforms: Notion, Google Slides, and Midjourney. [n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/reference/license/) workflow automation platform.
 
-This repo contains example nodes to help you get started building your own custom integrations for [n8n](n8n.io). It includes the node linter and other dependencies.
+## Table of Contents
 
-To make your custom node available to the community, you must create it as an npm package, and [submit it to the npm registry](https://docs.npmjs.com/packages-and-modules/contributing-packages-to-the-registry).
+- [Installation](#installation)
+- [Notion Node (Notion Markdown)](#notion-node-notion-markdown)
+- [Google Slides Node (Markdown To Google Slides)](#google-slides-node-markdown-to-google-slides)
+- [Midjourney Node](#midjourney-node)
+- [Resources](#resources)
 
-## Prerequisites
+---
 
-You need the following installed on your development machine:
+## Installation
 
-* [git](https://git-scm.com/downloads)
-* Node.js and npm. Minimum version Node 16. You can find instructions on how to install both using nvm (Node Version Manager) for Linux, Mac, and WSL [here](https://github.com/nvm-sh/nvm). For Windows users, refer to Microsoft's guide to [Install NodeJS on Windows](https://docs.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-windows).
-* Install n8n with:
-	```
-	npm install n8n -g
-	```
-* Recommended: follow n8n's guide to [set up your development environment](https://docs.n8n.io/integrations/creating-nodes/build/node-development-environment/).
+Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes/installation/) in the n8n community nodes documentation.
 
+---
 
-## Using this starter
+## Notion Node (Notion Markdown)
 
-These are the basic steps for working with the starter. For detailed guidance on creating and publishing nodes, refer to the [documentation](https://docs.n8n.io/integrations/creating-nodes/).
+This node lets you use Notion's functionalities in your n8n workflows. Notion is an all-in-one workspace where you can write, plan, collaborate and get organized.
 
-1. [Generate a new repository](https://github.com/n8n-io/n8n-nodes-starter/generate) from this template repository.
-2. Clone your new repo:
-    ```
-    git clone https://github.com/<your organization>/<your-repo-name>.git
-    ```
-3. Run `npm i` to install dependencies.
-4. Open the project in your editor.
-5. Browse the examples in `/nodes` and `/credentials`. Modify the examples, or replace them with your own nodes.
-6. Update the `package.json` to match your details.
-7. Run `npm run lint` to check for errors or `npm run lintfix` to automatically fix errors when possible.
-8. Test your node locally. Refer to [Run your node locally](https://docs.n8n.io/integrations/creating-nodes/test/run-node-locally/) for guidance.
-9. Replace this README with documentation for your node. Use the [README_TEMPLATE](README_TEMPLATE.md) to get started.
-10. Update the LICENSE file to use your details.
-11. [Publish](https://docs.npmjs.com/packages-and-modules/contributing-packages-to-the-registry) your package to npm.
+### Operations
 
-## More information
+- Fetch Page: Retrieve a page.
+- Append Page: Append a page.
 
-Refer to our [documentation on creating nodes](https://docs.n8n.io/integrations/creating-nodes/) for detailed information on building your own nodes.
+### Credentials
 
-## License
+To authenticate with Notion, you'll need an API key. Get your Notion API key by following their official documentation.
 
-[MIT](https://github.com/n8n-io/n8n-nodes-starter/blob/master/LICENSE.md)
+---
+
+## Google Slides Node (Markdown To Google Slides)
+
+This node lets you transform and use Markdown with Google Slides in your n8n workflows. Google Slides is a presentation program included as part of the free, web-based Google Docs Editors suite.
+
+### Operations
+
+Provide operations details as per the properties of the node.
+
+### Credentials
+
+To authenticate with Google Slides, you'll need OAuth2 authentication. Follow the Google Developers' documentation to set up OAuth2 credentials.
+
+---
+
+## Midjourney Node
+
+This node provides various image-related operations in your n8n workflows. Midjourney is a platform/service that provides image manipulation and analysis.
+
+### Operations
+
+- Custom: Use custom values for call.
+- Describe: Describe the image.
+- Imagine: Generate a grid with 4 images.
+- Upscale: Upscale the selected image.
+- Variation: Create a variation grid with 4 images.
+- Zoom Out: Zoom out the selected image.
+
+### Credentials
+
+Provide the necessary credentials details. For example, if an API key is required, guide the user on how to obtain it.
+
+---
+
+## Resources
+
+- [n8n community nodes documentation](https://docs.n8n.io/integrations/community-nodes/)
+- [Notion Official Documentation](https://developers.notion.com/)
+- [Google Slides Official Documentation](https://developers.google.com/slides)
+- [Midjourney Documentation or Website](#) (Replace with the actual link when available)

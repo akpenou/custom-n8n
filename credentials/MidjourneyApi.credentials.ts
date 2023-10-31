@@ -5,26 +5,34 @@ import {
 	INodeProperties,
 } from 'n8n-workflow';
 
-export class ExampleCredentialsApi implements ICredentialType {
-	name = 'exampleCredentialsApi';
-	displayName = 'Example Credentials API';
+// export SERVER_ID="1082500871478329374"
+// export CHANNEL_ID="1094892992281718894"
+// export SALAI_TOKEN="your-discord-token"
+
+export class MidjourneyApi implements ICredentialType {
+	name = 'midjourneyApi';
+	displayName = 'Midjourney Credentials API';
 	properties: INodeProperties[] = [
 		// The credentials to get from user and save encrypted.
 		// Properties can be defined exactly in the same way
 		// as node properties.
 		{
-			displayName: 'User Name',
-			name: 'username',
+			displayName: 'Server ID',
+			name: 'serverId',
 			type: 'string',
 			default: '',
 		},
 		{
-			displayName: 'Password',
-			name: 'password',
+			displayName: 'Channel ID',
+			name: 'channelId',
 			type: 'string',
-			typeOptions: {
-				password: true,
-			},
+			default: '',
+		},
+		{
+			displayName: 'Salai Token',
+			name: 'salaiToken',
+			type: 'string',
+			typeOptions: { password: true },
 			default: '',
 		},
 	];
