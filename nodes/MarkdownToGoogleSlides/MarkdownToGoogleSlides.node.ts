@@ -69,7 +69,7 @@ export class MarkdownToGoogleSlides implements INodeType {
 		version: 1,
 		description: 'Transform Markdown to Google Slides',
 		defaults: {
-			name: 'Notion Markdown',
+			name: 'markdown to gslides',
 		},
 		inputs: ['main'],
 		outputs: ['main'],
