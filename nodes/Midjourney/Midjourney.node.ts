@@ -193,6 +193,7 @@ export class Midjourney implements INodeType {
 		defaults: {
 			name: 'Midjourney',
 		},
+		subtitle: '={{$parameter["action"]}}',
 		inputs: ['main'],
 		outputs: ['main'],
 		credentials: [

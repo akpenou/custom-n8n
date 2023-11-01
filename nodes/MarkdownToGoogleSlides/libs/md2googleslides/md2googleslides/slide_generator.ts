@@ -21,7 +21,7 @@ import matchLayout from './layout/match_layout';
 import { URL } from 'url';
 import { google, slides_v1 as SlidesV1 } from 'googleapis';
 import uploadLocalImage from './images/upload';
-import { OAuth2Client } from 'googleapis-common';
+import { OAuth2Client } from 'google-auth-library';
 import probeImage from './images/probe';
 import maybeGenerateImage from './images/generate';
 import assert from 'assert';

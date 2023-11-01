@@ -74,6 +74,7 @@ export class NotionMarkdown implements INodeType {
 		defaults: {
 			name: 'Notion Markdown',
 		},
+		subtitle: '={{$parameter["action"] + ": " + $parameter["pageId"]}}',
 		inputs: ['main'],
 		outputs: ['main'],
 		credentials: [

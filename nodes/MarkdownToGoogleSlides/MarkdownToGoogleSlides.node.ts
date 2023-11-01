@@ -8,17 +8,9 @@ import {
 } from 'n8n-workflow';
 
 import { GooogleSlidesGenerator } from './libs/md2googleslides/md2gslides-v2';
+import { OAuth2Client } from 'google-auth-library';
 
 const inputs: { [key: string]: INodeProperties } = {
-	slideId: {
-		displayName: 'Slide ID',
-		name: 'slideId',
-		type: 'string',
-		default: '',
-		placeholder: 'slideId or URL',
-		description: 'The ID or URL of the slide to retrieve',
-		required: true,
-	},
 	content: {
 		displayName: 'Content',
 		name: 'content',
@@ -35,6 +27,14 @@ const inputs: { [key: string]: INodeProperties } = {
 		placeholder: 'Add Options',
 		default: {},
 		options: [
+			{
+				displayName: 'Append To',
+				name: 'appendTo',
+				type: 'string',
+				default: '',
+				placeholder: 'slideId or URL',
+				description: 'The ID or URL of the slide to apppend to',
+			},
 			{
 				displayName: 'Title',
 				name: 'title',
@@ -95,12 +95,14 @@ export class MarkdownToGoogleSlides implements INodeType {
 
 		let item: INodeExecutionData;
 
-		const credentials = await this.getCredentials('googleOAuth2Api');
-		const md2googleslides = new GooogleSlidesGenerator({
+		const credentials = await this.getCredentials('googleSlidesOAuth2Api');
+		const oauth2Client = new OAuth2Client({
 			clientId: credentials.clientId as string,
 			clientSecret: credentials.clientSecret as string,
-			redirectUri: credentials.oAuthCallbackUrl as string,
 		});
+		oauth2Client.setCredentials(credentials.oauthTokenData as any);
+
+		const md2googleslides = new GooogleSlidesGenerator(oauth2Client);
 
 		// Iterates over all input items and add the key "myString" with the
 		// value the parameter "myString" resolves to.
@@ -108,19 +110,21 @@ export class MarkdownToGoogleSlides implements INodeType {
 		for (let itemIndex = 0; itemIndex < items.length; itemIndex++) {
 			try {
 				item = items[itemIndex];
-				const title = this.getNodeParameter(inputs.title.name, itemIndex, '') as string;
-				const slideId = this.getNodeParameter(inputs.slideId.name, itemIndex, '') as string;
-				const erase = this.getNodeParameter(inputs.erase.name, itemIndex, false) as boolean;
-				const copyFrom = this.getNodeParameter(inputs.copyFrom.name, itemIndex, '') as
+				const title = this.getNodeParameter('title', itemIndex, '') as string;
+				const content = this.getNodeParameter('content', itemIndex, '') as string;
+				const appendTo = this.getNodeParameter('options.appendTo', itemIndex, '') as string;
+				const erase = this.getNodeParameter('options.erase', itemIndex, false) as boolean;
+				const copyFrom = this.getNodeParameter('options.copyFrom', itemIndex, '') as
 					| string
 					| undefined;
-				const content = this.getNodeParameter(inputs.content.name, itemIndex, '') as string;
 
 				const URL = await md2googleslides.createSlide(title, content, {
-					appendTo: slideId,
+					appendTo,
 					erase,
 					copyFrom,
 				});
+
+				console.log({ URL });
 
 				item.json['url'] = URL;
 			} catch (error) {

@@ -1,4 +1,4 @@
-import { OAuth2Client } from 'googleapis-common';
+import { OAuth2Client } from 'google-auth-library';
 
 import SlideGenerator from './md2googleslides/slide_generator';
 
@@ -17,7 +17,7 @@ function getId(url?: string | null) {
 		return undefined;
 	}
 
-	const regex = /docs\.google\.com\/presentation\/d\/(?<id>\w+)\/?/;
+	const regex = /docs\.google\.com\/presentation\/d\/(?<id>[\w-]+)\/?/;
 	const IdMatch = url.match(regex);
 
 	if (IdMatch) {
@@ -53,8 +53,6 @@ export class GooogleSlidesGenerator {
 				clientSecret,
 				redirectUri,
 			});
-
-			this.oauth2Client;
 		}
 	}
 
@@ -72,6 +70,14 @@ export class GooogleSlidesGenerator {
 		const css = loadCSS();
 
 		let slideGenerator: SlideGenerator;
+
+		console.log({
+			title,
+			content,
+			options,
+			appendToId,
+			copyFromId,
+		});
 
 		if (appendToId) {
 			slideGenerator = await SlideGenerator.forPresentation(this.oauth2Client, appendToId);
@@ -99,6 +105,6 @@ export function connectClient(clientId: string, clientSecret: string, redirectUr
 	return new OAuth2Client({
 		clientId,
 		clientSecret,
-		redirectUri,
+		// redirectUri,
 	});
 }
