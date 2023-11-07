@@ -71,14 +71,6 @@ export class GooogleSlidesGenerator {
 
 		let slideGenerator: SlideGenerator;
 
-		console.log({
-			title,
-			content,
-			options,
-			appendToId,
-			copyFromId,
-		});
-
 		if (appendToId) {
 			slideGenerator = await SlideGenerator.forPresentation(this.oauth2Client, appendToId);
 			if (options?.erase) {

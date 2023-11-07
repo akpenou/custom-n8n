@@ -110,21 +110,17 @@ export class MarkdownToGoogleSlides implements INodeType {
 		for (let itemIndex = 0; itemIndex < items.length; itemIndex++) {
 			try {
 				item = items[itemIndex];
-				const title = this.getNodeParameter('title', itemIndex, '') as string;
 				const content = this.getNodeParameter('content', itemIndex, '') as string;
+				const title = this.getNodeParameter('options.title', itemIndex, '') as string;
 				const appendTo = this.getNodeParameter('options.appendTo', itemIndex, '') as string;
 				const erase = this.getNodeParameter('options.erase', itemIndex, false) as boolean;
-				const copyFrom = this.getNodeParameter('options.copyFrom', itemIndex, '') as
-					| string
-					| undefined;
+				const copyFrom = this.getNodeParameter('options.copyFrom', itemIndex, '') as string;
 
 				const URL = await md2googleslides.createSlide(title, content, {
 					appendTo,
 					erase,
 					copyFrom,
 				});
-
-				console.log({ URL });
 
 				item.json['url'] = URL;
 			} catch (error) {
