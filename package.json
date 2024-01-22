@@ -33,6 +33,7 @@
     ],
     "nodes": [
       "dist/nodes/MarkdownToGoogleSlides/MarkdownToGoogleSlides.node.js",
+      "dist/nodes/YoutubeTranscript/YoutubeTranscript.node.js",
       "dist/nodes/NotionMarkdown/NotionMarkdown.node.js",
       "dist/nodes/Midjourney/Midjourney.node.js"
     ]
@@ -108,6 +109,7 @@
     "tmp": "0.2.1",
     "tmp-promise": "^3.0.2",
     "url": "^0.11.3",
-    "uuid": "^8.3.2"
+    "uuid": "^8.3.2",
+    "youtube-transcript": "^1.0.6"
   }
 }
