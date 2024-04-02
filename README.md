@@ -1,6 +1,6 @@
 # n8n Community Nodes Documentation
 
-[npm source](https://www.npmjs.com/package/n8n-nodes-betterpeople) [![Publish to npm](https://github.com/akpenou/custom-n8n/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/akpenou/custom-n8n/actions/workflows/npm-publish.yml)
+[![Publish to npm](https://github.com/akpenou/custom-n8n/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/akpenou/custom-n8n/actions/workflows/npm-publish.yml) [npm source](https://www.npmjs.com/package/n8n-nodes-betterpeople) 
 
 This document covers three n8n community nodes that integrate with different platforms: Notion, Google Slides, and Midjourney. [n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/reference/license/) workflow automation platform.
 
