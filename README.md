@@ -10,6 +10,7 @@ This document covers three n8n community nodes that integrate with different pla
 - [Notion Node (Notion Markdown)](#notion-node-notion-markdown)
 - [Google Slides Node (Markdown To Google Slides)](#google-slides-node-markdown-to-google-slides)
 - [Midjourney Node](#midjourney-node)
+- [Turndown](#turndown)
 - [Resources](#resources)
 
 ---
@@ -65,6 +66,12 @@ This node provides various image-related operations in your n8n workflows. Midjo
 ### Credentials
 
 Provide the necessary credentials details. For example, if an API key is required, guide the user on how to obtain it.
+
+---
+
+## Turndown
+
+This node provide turndown implementation to render HTML in markdown simply.
 
 ---
 
