@@ -10,6 +10,7 @@ import {
 import { Client } from '@notionhq/client';
 import { markdownToBlocks } from '@tryfabric/martian';
 import { NotionToMarkdown } from 'notion-to-md';
+import _ from 'lodash';
 
 const inputs: { [key: string]: INodeProperties } = {
 	action: {
@@ -131,10 +132,16 @@ export class NotionMarkdown implements INodeType {
 					const md = this.getNodeParameter(inputs.markdown.name, itemIndex, '') as string;
 
 					const blocks = markdownToBlocks(md);
-					await notion.blocks.children.append({
-						block_id: pageId,
-						children: blocks as any,
-					});
+
+					await _.chunk(blocks, 100).reduce(async (acc, chunk) => {
+						await acc;
+						await notion.blocks.children.append({
+							block_id: pageId,
+							children: chunk as any,
+						});
+
+						return Promise.resolve();
+					}, Promise.resolve());
 
 					item.json['pageId'] = pageId;
 					item.json['markdown'] = md;
