@@ -133,7 +133,7 @@ export class NotionMarkdown implements INodeType {
 
 					const blocks = markdownToBlocks(md);
 
-					await _.chunk(blocks, 100).reduce(async (acc, chunk) => {
+					await _.chunk(blocks, 75).reduce(async (acc, chunk) => {
 						await acc;
 						await notion.blocks.children.append({
 							block_id: pageId,
