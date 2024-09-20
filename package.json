@@ -29,14 +29,16 @@
   "n8n": {
     "n8nNodesApiVersion": 1,
     "credentials": [
-      "dist/credentials/MidjourneyApi.credentials.js"
+      "dist/credentials/MidjourneyApi.credentials.js",
+      "dist/credentials/OnOffApi.credentials.js"
     ],
     "nodes": [
       "dist/nodes/MarkdownToGoogleSlides/MarkdownToGoogleSlides.node.js",
       "dist/nodes/YoutubeTranscript/YoutubeTranscript.node.js",
       "dist/nodes/NotionMarkdown/NotionMarkdown.node.js",
       "dist/nodes/Midjourney/Midjourney.node.js",
-      "dist/nodes/Turndown/Turndown.node.js"
+      "dist/nodes/Turndown/Turndown.node.js",
+      "dist/nodes/OnOff/Onoff.node.js"
     ]
   },
   "devDependencies": {
@@ -69,6 +71,7 @@
     "@types/lowdb": "^1.0.10",
     "@types/markdown-it": "^12.0.2",
     "@types/parse5": "^6.0.0",
+    "dayjs": "^1.11.13",
     "debug": "^4.1.1",
     "extend": "^3.0.0",
     "file-url": "^3.0.0",

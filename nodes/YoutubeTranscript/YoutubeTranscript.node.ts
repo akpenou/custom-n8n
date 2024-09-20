@@ -4,6 +4,7 @@ import {
 	INodeProperties,
 	INodeType,
 	INodeTypeDescription,
+	NodeConnectionType,
 	NodeOperationError,
 } from 'n8n-workflow';
 
@@ -68,8 +69,10 @@ export class YoutubeTranscript implements INodeType {
 			name: 'Youtube Transcript',
 		},
 		subtitle: 'fetch video transcript',
-		inputs: ['main'],
-		outputs: ['main'],
+		// eslint-disable-next-line n8n-nodes-base/node-class-description-inputs-wrong-regular-node
+		inputs: [NodeConnectionType.Main],
+		// eslint-disable-next-line n8n-nodes-base/node-class-description-outputs-wrong
+		outputs: [NodeConnectionType.Main],
 		properties: [
 			// Node properties which the user gets displayed and
 			// can change on the node.

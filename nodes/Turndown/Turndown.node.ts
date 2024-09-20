@@ -6,7 +6,7 @@ import type {
 	INodeTypeDescription,
 	JsonObject,
 } from 'n8n-workflow';
-import { deepCopy } from 'n8n-workflow';
+import { deepCopy, NodeConnectionType } from 'n8n-workflow';
 
 import TurndownService from 'turndown';
 
@@ -24,8 +24,10 @@ export class Turndown implements INodeType {
 		defaults: {
 			name: 'Turndown',
 		},
-		inputs: ['main'],
-		outputs: ['main'],
+		// eslint-disable-next-line n8n-nodes-base/node-class-description-inputs-wrong-regular-node
+		inputs: [NodeConnectionType.Main],
+		// eslint-disable-next-line n8n-nodes-base/node-class-description-outputs-wrong
+		outputs: [NodeConnectionType.Main],
 		credentials: [],
 		properties: [
 			{

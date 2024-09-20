@@ -4,6 +4,7 @@ import {
 	INodeProperties,
 	INodeType,
 	INodeTypeDescription,
+	NodeConnectionType,
 	NodeOperationError,
 } from 'n8n-workflow';
 
@@ -194,8 +195,10 @@ export class Midjourney implements INodeType {
 			name: 'Midjourney',
 		},
 		subtitle: '={{$parameter["action"]}}',
-		inputs: ['main'],
-		outputs: ['main'],
+		// eslint-disable-next-line n8n-nodes-base/node-class-description-inputs-wrong-regular-node
+		inputs: [NodeConnectionType.Main],
+		// eslint-disable-next-line n8n-nodes-base/node-class-description-outputs-wrong
+		outputs: [NodeConnectionType.Main],
 		credentials: [
 			{
 				name: 'midjourneyApi',
