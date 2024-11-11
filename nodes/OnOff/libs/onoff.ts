@@ -3,7 +3,8 @@ import fetch from 'node-fetch';
 import dayjs from 'dayjs';
 
 const PHONE_URL = 'https://production-server.onoffapp.net/mobile';
-const WEB_URL = 'https://web.onoffbusiness.com';
+// const WEB_URL = 'https://web.onoffbusiness.com';
+const API_URL = 'https://api.onoffbusiness.com';
 
 interface IOnOff {
 	getCalls(): Promise<Call[]>;
@@ -99,7 +100,8 @@ interface Email {
 
 export class OnOff implements IOnOff {
 	private PHONE_URL = PHONE_URL;
-	private WEB_URL = WEB_URL;
+	// private WEB_URL = WEB_URL;
+	private API_URL = API_URL;
 	private accessToken: string;
 
 	constructor(accessToken: string) {
@@ -126,7 +128,7 @@ export class OnOff implements IOnOff {
 			...options?.headers,
 		};
 
-		const url = path.startsWith('/') ? `${this.WEB_URL}${path}` : path;
+		const url = path.startsWith('/') ? `${this.API_URL}${path}` : path;
 
 		const urlWithParams = new URL(url);
 		if (options?.params) {
